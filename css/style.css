@@ -93,9 +93,9 @@ header {
 }
 
 .dots {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap
+  display: none;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .dots button {
