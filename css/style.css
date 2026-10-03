@@ -436,7 +436,7 @@ td.c.now {
 .legend {
     font-size: 13px;
     color: var(--mut);
-    display: flex;
+    display: none;
     gap: 14px;
     flex-wrap: wrap;
     margin: 8px 0
