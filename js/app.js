@@ -15,7 +15,7 @@ function L1(){V(`<div class="card hero"><h1>Yuk, Amankan Data Kita!</h1><p class
 
 /* Layar 2 */
 function L2(){V(`<div class="card"><h2>Tujuan pembelajaran</h2><ol class="tj"><li>Menjelaskan konsep dan pentingnya backup dan restore data.</li><li>Mengidentifikasi jenis backup (full, incremental, differential) dan media penyimpanannya.</li><li>Mensimulasikan langkah backup ke media tertentu.</li><li>Mensimulasikan restore data dengan aman.</li><li>Mengevaluasi risiko dan kesalahan umum backup dan restore.</li></ol></div>
-<div class="card"><h3>Petunjuk penggunaan</h3><div class="icons"><div><b>Lanjut / Kembali</b><br>Pindah antar layar dengan tombol di bawah.</div><div><b>Nomor di atas</b><br>Menu: kembali ke layar yang sudah dibuka.</div><div><b>Putar / Jeda</b><br>Kendalikan video dan animasi sendiri.</div><div><b>Ulangi</b><br>Putar ulang materi yang belum paham.</div></div></div>${nav('Lanjut')}`)}
+<div class="card"><h3>Petunjuk penggunaan</h3><div class="icons"><div><b>Lanjut / Kembali</b><br>Pindah antar layar dengan tombol di bawah.</div><div><b>Putar / Jeda</b><br>Kendalikan video dan animasi sendiri.</div><div><b>Ulangi</b><br>Putar ulang materi yang belum paham.</div></div></div>${nav('Lanjut')}`)}
 
 /* Layar 3 */
 const SC=[{e:'💻🦠',c:'Laptop Dina terkena virus. Semua file tugas terenkripsi dan tidak bisa dibuka.'},{e:'🗑️📄',c:'Raka tidak sengaja menghapus laporan akhir semester, lalu mengosongkan Recycle Bin.'},{e:'💥💻',c:'Laptop jatuh dan hard disk rusak. Foto dan data tugas hilang. Tanpa backup, semua tidak bisa kembali.'},{e:'☁️✅',c:'Beda cerita jika Dina rutin backup: ganti laptop, restore, dan semua kembali dalam hitungan menit.'}];
