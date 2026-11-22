@@ -45,7 +45,7 @@ const Dash = (() => {
 
   /* ---------- Kerangka ---------- */
   function shell(inner) {
-    const T = [["me", "📘 Rapor Saya"], ["kelas", "🧑‍🏫 Dashboard Kelas (Guru)"], ["info", "🔒 Data & Privasi"]];
+    const T = [["me", "📊 Progres Belajar"], ["kelas", "👨‍🏫 Dashboard Kelas"], ["info", "🔒 Data & Privasi"]];
     return `
       <div class="dh">
       <div><h1 class="dt">Dashboard Learning Analytics</h1><p class="hint" style="margin:0">Jejak belajar diubah menjadi informasi untuk membantu keputusan belajar.</p></div><button class="pri" onclick="Dash.enter()">${state.cur > 0 ? "▶ Lanjutkan Materi" : "▶ Masuk ke Materi"}</button></div>
