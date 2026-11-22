@@ -48,7 +48,7 @@ const Dash = (() => {
     const T = [["me", "📘 Rapor Saya"], ["kelas", "🧑‍🏫 Dashboard Kelas (Guru)"], ["info", "🔒 Data & Privasi"]];
     return `
       <div class="dh">
-      <div><h1 class="dt">Dashboard Learning Analytics</h1><p class="hint" style="margin:0">Jejak belajar diubah menjadi informasi untuk membantu keputusan belajar.</p></div><button class="ghost" onclick="Dash.close()">← Kembali ke materi</button></div>
+      <div><h1 class="dt">Dashboard Learning Analytics</h1><p class="hint" style="margin:0">Jejak belajar diubah menjadi informasi untuk membantu keputusan belajar.</p></div><button class="pri" onclick="Dash.enter()">${state.cur > 0 ? "▶ Lanjutkan Materi" : "▶ Masuk ke Materi"}</button></div>
     <div class="tabs" role="tablist">${T.map(([k, n]) => `<button role="tab" aria-selected="${k === tab}" class="${k === tab ? "on" : ""}" onclick="Dash.tab('${k}')">${n}</button>`).join("")}</div>${noteHtml()}${inner}`;
   }
   function draw() {
@@ -61,7 +61,7 @@ const Dash = (() => {
   function me() {
     const l = LA.cur();
     if (!l) return `
-      <div class="card"><p>Belum ada siswa aktif.</p><button class="pri" onclick="Dash.who()">Mulai sebagai siswa</button></div>`;
+      <div class="card"><p>Belum ada siswa aktif. Rapor belajarmu akan muncul di sini setelah kamu mulai belajar.</p><button class="pri" onclick="Dash.enter()">Masuk ke materi sebagai siswa</button></div>`;
     const s = LA.sum(l), recs = LA.recStudent(l), maxMs = Math.max(1, ...s.ms);
     const lastAns = s.last ? s.last.ans : [];
     return `
@@ -255,6 +255,10 @@ const Dash = (() => {
     $("#ov").innerHTML = "";
     chip();
     LA.screen(state.cur);
+    if (document.body.classList.contains("dashmode")) {
+      document.body.classList.remove("dashmode");
+      render();
+    }
   }
 
   /* ---------- API publik ---------- */
@@ -282,7 +286,17 @@ const Dash = (() => {
         LA.use(l.id);
         chip();
         LA.screen(state.cur);
-      } else who(true);
+      }
+      // Dashboard menjadi halaman pertama yang tampil
+      this.open("me");
+    },
+    // Tombol "Masuk ke Materi": minta nama dulu jika belum ada siswa aktif
+    enter() {
+      if (!LA.cur()) {
+        who(true);
+        return;
+      }
+      this.close();
     },
     open(t) {
       LA.pause();
