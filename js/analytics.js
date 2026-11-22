@@ -5,7 +5,7 @@
    Data disimpan di localStorage dan, bila cloud.js aktif, disalin ke Firebase Firestore.
    ===================================================================== */
 const LA = (() => {
-  const KEY = "la_v1", PIN = "guru123", PASS = 75, NS = 7, NQ = 6;
+  const KEY = "la_v1", PIN = "Guru1004", PASS = 75, NS = 7, NQ = 6;
 
   /* Nama layar (indeks 0-6, sama dengan pindahLayar(n) di core.js) */
   const SCR = ["Pembuka", "Tujuan", "Pengantar & media", "Jenis backup", "Simulasi backup", "Simulasi restore", "Evaluasi"];
