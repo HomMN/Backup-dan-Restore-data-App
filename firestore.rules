@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /siswa/{id} {
+      // Siswa: boleh menulis datanya sendiri (dengan batasan bentuk dan ukuran)
+      allow create, update: if id.matches('^[A-Za-z0-9_-]{3,40}$')
+        && request.resource.data.keys().hasOnly(['id', 'nama', 'kelas', 't0', 'max', 'ev', 'updatedAt'])
+        && request.resource.data.id == id
+        && request.resource.data.nama is string && request.resource.data.nama.size() <= 40
+        && request.resource.data.kelas is string && request.resource.data.kelas.size() <= 30
+        && request.resource.data.ev is list && request.resource.data.ev.size() <= 3000;
+
+      // Guru: hanya akun ini yang boleh membaca dan menghapus (GANTI email di bawah)
+      allow read, delete: if request.auth != null
+        && request.auth.token.email == 'EMAIL_GURU@contoh.com';
+    }
+  }
+}
