@@ -88,7 +88,7 @@ const Dash = (() => {
     if (!unlocked) return `
       <div class="card" style="max-width:460px">
       <h2>Khusus guru</h2><p>Dashboard kelas menampilkan data seluruh siswa. Masukkan PIN untuk guru kelas.</p><label for="pin" class="lb">PIN guru</label><input id="pin" class="tx" type="password" autocomplete="off" onkeydown="if(event.key==='Enter')Dash.unlock()">
-      <div class="row"><button class="pri" onclick="Dash.unlock()">Buka</button></div><p class="hint">. PIN hanya pembatas tampilan karena data tersimpan di browser, bukan pengaman data.</p></div>`;
+      <div class="row"><button class="pri" onclick="Dash.unlock()">Buka</button></div><p class="hint"> PIN hanya pembatas tampilan karena data tersimpan di browser, bukan pengaman data.</p></div>`;
     const list = LA.all(), c = LA.cls(list), nDemo = list.filter((l) => l.demo).length;
     const tools = `
       <div class="card toolbar">
